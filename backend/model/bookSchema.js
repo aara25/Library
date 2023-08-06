@@ -25,7 +25,7 @@ const requestedBookSchema = mongoose.Schema({
 const bookSchema = new mongoose.Schema({
   author: { type: String },
   count: { type: Number },
-  edition: { type: String },
+  accessId: { type: String },
   id: { type: mongoose.Schema.Types.ObjectId },
   title: { type: String },
   issuedTo: [issuedToSchema],

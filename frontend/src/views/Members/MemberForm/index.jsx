@@ -8,7 +8,7 @@ import validationSchema from "./memberForm.validation";
 
 import "./memberForm.css";
 
-const MemberForm = ({ member = { type: "student" }, onSubmit, onCancel }) => {
+const MemberForm = ({ member = { type: "staff" }, onSubmit, onCancel }) => {
   const { addMember, updateMember } = MemberService();
 
   const handleSubmit = async (member) => {
@@ -32,11 +32,7 @@ const MemberForm = ({ member = { type: "student" }, onSubmit, onCancel }) => {
               {
                 label: "Staff",
                 value: "staff",
-              },
-              {
-                label: "Student",
-                value: "student",
-              },
+              }
             ]}
           />
           <Input name="name" label="Name" />

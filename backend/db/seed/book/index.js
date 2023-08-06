@@ -10,8 +10,8 @@ const populateBooks = async () => {
     mappedBooks.set(Book_name, {
       title: Book_name,
       author: Author,
-      edition: Cupboard_no,
-      count: existingBooks + Number(Availability === "YES"),
+      accessId: Access_no,
+      count: (Availability === "YES") ? 1 : 0,
     });
   });
 

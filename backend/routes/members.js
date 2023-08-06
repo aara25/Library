@@ -1,6 +1,7 @@
 const express = require("express");
 
 const router = express.Router();
+const bcrypt = require("bcrypt")
 
 const Member = require("../model/memberSchema");
 
@@ -21,6 +22,9 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const member = new Member(req.body.member);
+    member.password = member.name + "@" + member.registerNumber
+    const hashedPassword = await bcrypt.hash(member.password,10);
+    member.password = hashedPassword
     await member.save();
     res.status(201).json(member);
   } catch (ex) {

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 mongoose
-  .connect("mongodb://localhost:27017/library", {
+  .connect("mongodb+srv://admin:Lordismyrock@aarathicluster.ycsywvz.mongodb.net/Library", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

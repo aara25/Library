@@ -12,3 +12,9 @@
   align-self: flex-start;
   width: auto;
 }
+
+/* Container for Print button */
+.btn {
+  
+  margin-right: 106px;
+}

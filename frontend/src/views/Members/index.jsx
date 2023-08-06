@@ -47,21 +47,6 @@ export const Members = () => {
 
   const items = [
     {
-      key: "1",
-      label: "Students",
-      children: (
-        <Table
-          rowKey="_id"
-          columns={generateColumns(handleEdit, handleDelete)}
-          loading={loading}
-          dataSource={members?.filter((member) => member?.type === "student")}
-          pagination={{
-            hideOnSinglePage: true,
-          }}
-        />
-      ),
-    },
-    {
       key: "2",
       label: "Staff",
       children: (

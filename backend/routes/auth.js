@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt")
 const Member = require("../model/memberSchema");
 
 const router = Router();
@@ -11,7 +12,7 @@ router.post("/login", async ({ body: { email, password } }, res) => {
 
     const member = await Member.findOne({ email });
 
-    if (!member || member?.password !== password)
+    if (!member || !(await bcrypt.compare(password,member.password)))
       return res.status(400).json({ message: "Incorrect Email or Password" });
 
     const token = jwt.sign({ _id: member?._id }, "qwertyuiop", {

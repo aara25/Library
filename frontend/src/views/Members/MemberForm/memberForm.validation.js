@@ -5,5 +5,5 @@ export default Yup.object().shape({
   name: Yup.string().required().label("Name"),
   phone: Yup.string().min(10).max(10).required().label("Phone Number"),
   registerNumber: Yup.string().required().label("Register Number"),
-  type: Yup.string().oneOf(["staff", "student"]).required().label("Type"),
+  type: Yup.string().oneOf(["staff"]).required().label("Type"),
 });

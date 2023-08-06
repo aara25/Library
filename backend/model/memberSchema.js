@@ -6,7 +6,7 @@ const memberSchema = new mongoose.Schema({
   name: String,
   phone: { type: String, unique: true, required: true },
   registerNumber: { type: String, unique: true, required: true },
-  type: { type: String, enum: ["staff", "student", "admin"] },
+  type: { type: String, enum: ["staff", "admin"] },
   password: {
     type: String,
     default: "Password@123",

@@ -9,7 +9,9 @@ import Search from "antd/es/input/Search";
 import { generatePath, useNavigate } from "react-router";
 import UserContext from "../../Context/UserContext";
 
+
 import "./books.css";
+import FileUpload from "../Book/FileUpload";
 
 export const Books = () => {
   const { user } = useContext(UserContext);
@@ -33,7 +35,7 @@ export const Books = () => {
   };
 
   const handleSearch = debounce(({ target: { value } }) => {
-    setFilters({ title: value, author: value });
+    setFilters({ title: value, author: value, accessId: value });
   }, 200);
 
   const openBookForm = () => setIsBookFormVisible(true);
@@ -76,10 +78,14 @@ export const Books = () => {
         <Space className="books__header">
           <h1 className="m-0">Books</h1>
           {isAdmin && <PlusCircleOutlined onClick={openBookForm} />}
+          {/* <Button className="btn" type="primary">Upload</Button>
+           */}
+           {isAdmin &&<FileUpload />}
         </Space>
+       
         <Search
           className="books__search"
-          placeholder="Search By Title, Author"
+          placeholder="Search By Title, Author, AccessId"
           onChange={handleSearch}
         />
         <Table
